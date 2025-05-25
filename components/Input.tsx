@@ -13,19 +13,28 @@ export default function Input({
   ...rest
 }: InputProps) {
   return (
-    <View style={{ gap: 10 }}>
+    <View style={{ gap: 10, flex: 1 }}>
       {hasLabel ? <ThemedText typo="body">{label}</ThemedText> : null}
-      <TextInput style={styles.input} {...rest} />
+      <View style={styles.input}>
+        <TextInput style={styles.inputText} {...rest} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   input: {
-    fontSize: 16,
-    padding: 15,
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 5,
+    paddingHorizontal: 16,
     borderColor: "#B3B3B3",
     borderWidth: 1,
     borderRadius: 10,
+  },
+  inputText: {
+    flex: 1,
+    fontSize: 16,
   },
 });
