@@ -9,15 +9,11 @@ import {
 } from 'react-native';
 import { format, addDays, subDays, startOfWeek, isToday } from 'date-fns';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
-// Get device width for responsive layout
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
-interface HomeProps {
-  navigation: any;
-}
-
-const Home: React.FC<HomeProps> = ({ navigation }) => {
+const Home = () => {
   const [currentStartDate, setCurrentStartDate] = useState(
     startOfWeek(new Date(), { weekStartsOn: 5 }),
   );
@@ -39,14 +35,21 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       {/* Top Bar */}
       <View style={styles.topBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+        <TouchableOpacity onPress={() => router.navigate('/screens/calendar')}>
           <Ionicons name="calendar-outline" size={30} color="#000" />
         </TouchableOpacity>
 
         <Text style={styles.monthText}>{format(currentStartDate, 'MMMM')}</Text>
 
         <View>
-          <Ionicons name="notifications-outline" size={30} color="#000" />
+          <TouchableOpacity
+            onPress={() =>
+              router.navigate('/screens/notification/notification')
+            }
+          >
+            <Ionicons name="notifications-outline" size={30} color="#000" />
+          </TouchableOpacity>
+
           <View style={styles.notificationDot} />
         </View>
       </View>
@@ -119,10 +122,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
-    flex: 1, // take all remaining space between nav buttons
+    flex: 1,
   },
   dateButton: {
-    width: (SCREEN_WIDTH - 80) / 7, // subtract nav buttons’ combined width (~80), divide by 7
+    width: (SCREEN_WIDTH - 80) / 7,
     alignItems: 'center',
     paddingVertical: 8,
     borderRadius: 20,

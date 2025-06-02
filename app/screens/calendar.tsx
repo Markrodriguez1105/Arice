@@ -10,8 +10,10 @@ import { Calendar } from 'react-native-calendars';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import farmingTask from '../CalendarUtils/task';
-import TaskNotify, { getMarkedDates } from '../CalendarUtils/tasknotify';
+import farmingTask from '../../components/calendar/task';
+import TaskNotify, {
+  getMarkedDates,
+} from '../../components/calendar/tasknotify';
 
 type DayObject = {
   dateString: string;

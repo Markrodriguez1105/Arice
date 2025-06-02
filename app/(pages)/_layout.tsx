@@ -7,11 +7,11 @@ export default function Layout() {
       screenOptions={{
         headerShown: false, // hides the header on all tabs
         tabBarActiveTintColor: '#22c55e', // active tab icon color (green)
-        tabBarInactiveTintColor: 'gray',  // inactive tab icon color
+        tabBarInactiveTintColor: 'gray', // inactive tab icon color
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, size }) => (

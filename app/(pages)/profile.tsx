@@ -1,4 +1,4 @@
-import ProfileContent from '@/profileContent/profileContent';
+import ProfileContent from '../screens/profile/profileContent';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function ProfileScreen() {
