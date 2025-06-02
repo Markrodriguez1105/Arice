@@ -1,4 +1,3 @@
-
 # Arice - Your Expo App 👋
 
 [![Expo](https://img.shields.io/badge/Made%20with%20Expo-1C1E24?style=for-the-badge&logo=expo&logoColor=%234630EB)](https://expo.dev/)
@@ -9,7 +8,7 @@ Arice is an Expo-based mobile application built with React Native. This project 
 
 ## Project Overview
 
-Arice aims to [> Briefly describe the purpose of your app here. What problem does it solve? Who is the target audience?]. Built using Expo, React Native, and other modern technologies, it offers a seamless development experience and easy deployment.
+Arice aims to help farmers by suggesting a methods that can help them in farming. Built using Expo, React Native, and other modern technologies, it offers a seamless development experience and easy deployment.
 
 ## Getting Started
 
@@ -83,7 +82,7 @@ We welcome contributions to Arice! If you'd like to contribute:
 3.  Make your changes and ensure they are well-tested.
 4.  Submit a pull request with a clear description of your changes.
 
-Please follow our [> link to contribution guidelines, if available, or describe them here].
+Please follow our https://github.com/Markrodriguez1105/Arice.git
 
 ## Learn More
 
@@ -99,4 +98,3 @@ Connect with other developers and get help:
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
 ## License
-
