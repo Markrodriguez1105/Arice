@@ -8,7 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
-import authBg from "@/assets/images/authBg.png";
 import { Colors } from "@/constants/Colors";
 import ThemedText from "@/components/ThemedText";
 import Input from "@/components/Input";
@@ -18,9 +17,18 @@ import { router } from "expo-router";
 import Password from "@/components/Password";
 
 export default function resgiter() {
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   return (
     <ImageBackground
-      source={authBg}
+      source={require("@/assets/images/authBg.png")}
       style={styles.background}
       resizeMode="cover"
       blurRadius={4}
@@ -39,7 +47,7 @@ export default function resgiter() {
           <View style={{ flexDirection: "row" }}>
             <Pressable
               style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
-              onPress={() => router.navigate("/screen/auth/login")}
+              onPress={() => router.navigate("/screen/Auth/login")}
             >
               <FontAwesome name="chevron-left" size={15} />
               <ThemedText typo="body">Back</ThemedText>
@@ -49,14 +57,30 @@ export default function resgiter() {
           <ThemedText typo="body_bold" style={{ color: Colors.Dark }}>
             Personal Information
           </ThemedText>
-          <Input label="First Name"></Input>
-          <Input label="Middle Name"></Input>
-          <Input label="Last Name"></Input>
-          <Input label="Gender"></Input>
+          <Input
+            label="First Name"
+            value={firstName}
+            onChangeText={setFirstName}
+          ></Input>
+          <Input
+            label="Middle Name"
+            value={middleName}
+            onChangeText={setMiddleName}
+          ></Input>
+          <Input
+            label="Last Name"
+            value={lastName}
+            onChangeText={setLastName}
+          ></Input>
+          <Input label="Gender" value={gender} onChangeText={setGender}></Input>
           <ThemedText typo="body_bold" style={{ color: Colors.Dark }}>
             Account
           </ThemedText>
-          <Input label="Active Email Address"></Input>
+          <Input
+            label="Active Email Address"
+            value={email}
+            onChangeText={setEmail}
+          ></Input>
           <View style={{ flexDirection: "row" }}>
             <Pressable>
               <ThemedText
@@ -68,8 +92,16 @@ export default function resgiter() {
             </Pressable>
             {/* <ThemedText typo="caption"> `00:00</ThemedText> */}
           </View>
-          <Password label="Password" />
-          <Password label="Repeat Password" />
+          <Password
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+          />
+          <Password
+            label="Repeat Password"
+            value={repeatPassword}
+            onChangeText={setRepeatPassword}
+          />
           <Button
             title="Register"
             // outlined={true}

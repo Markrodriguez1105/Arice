@@ -4,7 +4,7 @@
     "slug": "ARICE",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "/assets/images/logos/icon.png",
+    "icon": "assets/images/logos/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.markrodriguez1105.ARICE"
     },
     "web": {
       "bundler": "metro",

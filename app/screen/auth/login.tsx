@@ -5,27 +5,61 @@ import {
   Alert,
   Pressable,
   ScrollView,
-  TouchableOpacity,
+  AppState,
 } from "react-native";
 import React, { useState } from "react";
-import authBg from "@/assets/images/authBg.png";
-import Logo from "@/assets/logos/icon.png";
 import { Colors } from "@/constants/Colors";
 import ThemedText from "@/components/ThemedText";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Password from "@/components/Password";
 import { router } from "expo-router";
-import { FontAwesome } from "@expo/vector-icons";
+import { supabase } from "@/lib/supabase";
+
+AppState.addEventListener("change", (state) => {
+  if (state === "active") {
+    supabase.auth.startAutoRefresh();
+  } else {
+    supabase.auth.stopAutoRefresh();
+  }
+});
 
 export default function login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [secureText, setSecureText] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  async function signInWithEmail() {
+    setLoading(true);
+    const { error, data } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+    if (error) Alert.alert(error.message);
+    setLoading(false);
+    if (data.session) {
+      router.navigate("/(pages)/dashboard");
+    }
+  }
+
+  // async function signUpWithEmail() {
+  //   setLoading(true);
+  //   const {
+  //     data: { session },
+  //     error,
+  //   } = await supabase.auth.signUp({
+  //     email: email,
+  //     password: password,
+  //   });
+  //   if (error) Alert.alert(error.message);
+  //   if (!session)
+  //     Alert.alert("Please check your inbox for email verification!");
+  //   setLoading(false);
+  // }
 
   return (
     <ImageBackground
-      source={authBg}
+      source={require("@/assets/images/authBg.png")}
       style={styles.background}
       resizeMode="cover"
       blurRadius={4}
@@ -67,13 +101,14 @@ export default function login() {
           <Button
             title="Log in"
             outlined={true}
+            // disabled={loading}
             buttonColor={Colors.Accent}
             hasIcon={false}
-            onPress={() => Alert.alert("Log in", "OPPSS")}
+            onPress={() => signInWithEmail()}
           />
           <View style={{ flexDirection: "row" }}>
             <ThemedText typo="caption">You don’t have account? </ThemedText>
-            <Pressable onPress={() => router.navigate("/screen/auth/register")}>
+            <Pressable onPress={() => router.navigate("/screen/Auth/register")}>
               <ThemedText typo="caption" style={{ color: Colors.Accent }}>
                 Create Account.
               </ThemedText>

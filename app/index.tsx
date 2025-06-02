@@ -6,12 +6,14 @@ import Login from "@/app/screen/Auth/login";
 import Register from "@/app/screen/Auth/register";
 import StartLoading from "@/app/screen/Startup/startLoading";
 import AppDetailes from "./screen/Startup/appDetails";
+import Dashboard from "./(pages)/dashboard";
+import ForecastView from "./screen/Weather/forecastView";
 
 export default function index() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        <AppDetailes />
+        <StartLoading />
       </SafeAreaView>
     </SafeAreaProvider>
   );

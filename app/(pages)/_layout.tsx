@@ -6,6 +6,8 @@ import { Colors } from "../../constants/Colors";
 export default function RootLayout() {
   return (
     <Tabs
+      initialRouteName="dashboard"
+      backBehavior="history"
       screenOptions={{
         tabBarLabelStyle: { fontSize: 12 },
         headerShown: false,
@@ -14,7 +16,7 @@ export default function RootLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
           title: "Dashboard",
           tabBarIcon: (iconColor) => (
