@@ -14,6 +14,7 @@ type ButtonProps = {
   onPress: TouchableOpacityProps["onPress"];
   title: string;
   outlined?: boolean;
+  disabled?: boolean;
   hasIcon?: boolean;
   iconName?: keyof typeof FontAwesome.glyphMap;
   buttonColor?: string;
@@ -31,10 +32,11 @@ export default function Button({
   buttonColor = "#007BFF",
   textColor = "#FFFFFF",
   buttonStyle,
+  disabled = false,
   textStyle,
 }: ButtonProps) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity disabled={disabled} onPress={onPress}>
       <View
         style={
           outlined
