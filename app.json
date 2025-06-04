@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ARICE",
-    "slug": "ARICE",
+    "name": "Soil_Analysis",
+    "slug": "Soil_Analysis",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

@@ -14,12 +14,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar style="auto" />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="+not-found"
-          options={{ title: "Not Found", headerShown: true }}
-        />
-        <Stack.Screen name="(soil)" options={{ headerShown: false }} />
+        <Stack.Screen name="SensorDetails" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
